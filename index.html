@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jennory, tu plan · Tu propio Grok Bot</title>
+<meta name="description" content="Lo que tu propio asistente puede hacer por tus talleres de inglés para el trabajo.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f6efe4">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6efe4;--ink:#22302e;--soft:#55625f;--teal:#1f5f5b;--clay:#c2603d;--sun:#e9b44c;--card:#fffaf2;--line:#e2d6c3}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;margin:0 0 .5em;font-weight:700}
+h1{font-size:clamp(2.2rem,9vw,3.6rem)}h2{font-size:clamp(1.6rem,6vw,2.4rem);color:var(--teal)}h3{font-size:1.2rem}
+p{margin:0 0 1em;max-width:62ch}
+.wrap{padding:0 1.25rem;max-width:960px;margin:0 auto}
+section{padding:3.5rem 0}
+.top{position:sticky;top:0;z-index:5;background:rgba(246,239,228,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;height:56px}
+.brand{font-family:Fraunces,serif;font-weight:700;color:var(--teal)}
+.toggle{border:1.5px solid var(--teal);background:none;color:var(--teal);border-radius:99px;padding:.45rem 1rem;font:600 .95rem Inter,sans-serif;min-height:44px;cursor:pointer}
+.toggle:focus-visible,a:focus-visible{outline:3px solid var(--clay);outline-offset:2px}
+.hero{padding:2.5rem 0 3rem;position:relative;overflow:hidden}
+.hero svg.art{width:100%;max-width:420px;height:auto;display:block;margin:0 auto 1.5rem}
+.lead{font-size:1.2rem;color:var(--soft)}
+.quote{font-family:Fraunces,serif;font-size:1.35rem;line-height:1.4;color:var(--teal);margin:1.5rem 0;padding:1.25rem 1.25rem 1.25rem 3rem;background:var(--card);border-radius:20px;position:relative}
+.quote::before{content:"“";position:absolute;left:.8rem;top:.2rem;font-size:3rem;color:var(--clay)}
+.why{background:var(--teal);color:#f6efe4}.why h2{color:var(--sun)}.why p{color:#e7efe9}
+.pillars{display:grid;gap:1rem;margin-top:1.5rem}
+.pillar{display:flex;gap:1rem;align-items:flex-start}
+.ic{flex:none;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:var(--sun)}
+.ic svg{width:28px;height:28px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.why .ic{background:#f6efe4}
+.show{display:grid;gap:1rem;margin-top:1.5rem}
+.tile{background:var(--card);border-radius:22px;padding:1.4rem;border:1px solid var(--line)}
+.tile .ic{margin-bottom:.8rem}
+.mock{margin-top:.9rem;background:#fff;border-radius:14px;padding:.8rem;font-size:.9rem;border:1px solid var(--line)}
+.bubble{background:#dcefe9;border-radius:14px 14px 14px 4px;padding:.55rem .8rem;margin:.3rem 0;max-width:90%}
+.bubble.me{background:#f8e2d6;margin-left:auto;border-radius:14px 14px 4px 14px}
+.bars{display:flex;gap:.6rem;align-items:flex-end;height:90px;padding-top:.5rem}
+.bars span{flex:1;background:var(--sun);border-radius:8px 8px 0 0;display:flex;align-items:flex-start;justify-content:center;font-weight:600;font-size:.8rem;padding-top:.3rem}
+.wave{display:flex;gap:4px;align-items:center;height:40px}
+.wave i{display:block;width:5px;border-radius:3px;background:var(--teal);animation:w 1.2s ease-in-out infinite}
+@keyframes w{50%{transform:scaleY(.4)}}
+.tl{list-style:none;padding:0;margin:2rem 0 0;position:relative}
+.tl::before{content:"";position:absolute;left:21px;top:8px;bottom:8px;width:3px;background:linear-gradient(var(--clay),var(--sun),var(--teal));border-radius:3px}
+.tl li{position:relative;padding:0 0 1.6rem 64px}
+.dot{position:absolute;left:0;top:0;width:45px;height:45px;border-radius:50%;background:var(--card);border:3px solid var(--clay);display:grid;place-items:center;font:700 1rem Fraunces,serif;color:var(--clay)}
+.tl li:nth-child(n+5) .dot{border-color:#d08f3b;color:#9a6120}.tl li:nth-child(n+9) .dot{border-color:var(--teal);color:var(--teal)}
+.tl h3{margin:.55rem 0 .25rem}.tl p{color:var(--soft);margin:0}
+.tag{display:inline-block;font-size:.8rem;font-weight:600;background:#f3d9a4;color:#5b3d0c;border-radius:99px;padding:.1rem .6rem;margin-left:.3rem;vertical-align:middle}
+.money{display:grid;gap:1rem;margin-top:1.5rem}
+.stat{background:var(--card);border-radius:22px;padding:1.4rem;border:1px solid var(--line)}
+.stat b{display:block;font:700 2rem Fraunces,serif;color:var(--clay)}
+.loop{width:100%;max-width:360px;height:auto;display:block;margin:1.5rem auto 0}
+.end{text-align:center;padding:4rem 0 5rem}.end p{margin-left:auto;margin-right:auto}
+footer{font-size:.85rem;color:var(--soft);text-align:center;padding:0 1.25rem 2.5rem}
+[data-lang="en"] .es,[data-lang="es"] .en{display:none}
+@media (min-width:700px){.show{grid-template-columns:1fr 1fr}.money{grid-template-columns:repeat(3,1fr)}.pillars{grid-template-columns:repeat(3,1fr)}.pillar{flex-direction:column}section{padding:5rem 0}}
+@media (prefers-reduced-motion:reduce){.wave i{animation:none}}
+</style>
+</head>
+<body data-lang="es">
+<header class="top"><div class="wrap"><span class="brand">Jennory</span>
+<button class="toggle" id="t" aria-label="Switch to English"><span class="es">English</span><span class="en">Español</span></button></div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+<svg class="art" viewBox="0 0 400 260" role="img" aria-label="Ilustración: una pizarra, una taza de café y un teléfono con mensajes">
+<circle cx="320" cy="60" r="38" fill="#e9b44c"/>
+<rect x="30" y="40" width="230" height="150" rx="18" fill="#1f5f5b"/>
+<text x="55" y="95" fill="#f6efe4" font-family="Fraunces,Georgia,serif" font-size="30" font-weight="700">Hello,</text>
+<text x="55" y="135" fill="#e9b44c" font-family="Fraunces,Georgia,serif" font-size="30" font-weight="700">team!</text>
+<path d="M55 160h120" stroke="#f6efe4" stroke-width="4" stroke-linecap="round" opacity=".5"/>
+<rect x="265" y="110" width="95" height="140" rx="16" fill="#22302e"/><rect x="273" y="122" width="79" height="116" rx="8" fill="#fffaf2"/>
+<rect x="280" y="132" width="52" height="16" rx="8" fill="#dcefe9"/><rect x="293" y="155" width="52" height="16" rx="8" fill="#f8e2d6"/><rect x="280" y="178" width="60" height="16" rx="8" fill="#dcefe9"/>
+<path d="M150 215h70v20a20 20 0 0 1-20 20h-30a20 20 0 0 1-20-20z" fill="#c2603d"/><path d="M220 222a12 12 0 0 1 0 22" stroke="#c2603d" stroke-width="5" fill="none"/>
+<path d="M170 205c-6-10 6-14 0-24M190 205c-6-10 6-14 0-24" stroke="#55625f" stroke-width="3" fill="none" stroke-linecap="round"/>
+</svg>
+<div class="es">
+<h1>Jennory, esto salió de una conversación.</h1>
+<p class="lead">Una mañana, con tu hermano al lado, dijiste en voz alta lo que necesitabas. Esta página es lo que pasa cuando alguien te escucha de verdad.</p>
+<div class="quote">Necesito dar talleres de inglés para el trabajo, y necesito crear la campaña de promoción.</div>
+<p>Lo dijiste así, sin preparar nada. Warren te hizo unas cuantas preguntas: para quién son, cómo los das, cómo te pagan. Contestaste con calma, entre otras mil cosas del día. No había plataforma, ni sitio web, ni campaña. Solo tus ganas y muy poco tiempo.</p>
+</div>
+<div class="en">
+<h1>Jennory, this came out of one conversation.</h1>
+<p class="lead">One morning, with your brother beside you, you said out loud what you needed. This page is what happens when someone really listens.</p>
+<div class="quote">I need to teach workshops on English for work, and I need to create the promotion campaign.</div>
+<p>You said it just like that, with nothing prepared. Warren asked you a few questions: who it's for, how you teach, how people pay. You answered calmly, in the middle of a busy day. There was no platform, no website, no campaign yet. Just your drive and very little time.</p>
+</div>
+</div></section>
+
+<section class="why"><div class="wrap">
+<div class="es"><h2>Por qué</h2>
+<p>Porque tu negocio es tuyo, y tu tiempo también. Trabajás tiempo completo, visitás a tu mamá, vas a la iglesia. Lo que enseñás vale mucho; lo que sobra es el trabajo pesado que lo rodea. La idea es devolverte horas sin cargarte más.</p></div>
+<div class="en"><h2>Why</h2>
+<p>Because your business is yours, and so is your time. You work full-time, you visit your mom, you go to church. What you teach is valuable; the heavy lifting around it is what wears you down. The idea is to give you hours back without piling on more.</p></div>
+</div></section>
+
+<section><div class="wrap">
+<div class="es"><h2>Cómo</h2><p>Tu propio Grok Bot trabaja como una mano derecha. Así de simple:</p></div>
+<div class="en"><h2>How</h2><p>Your own Grok Bot works like a right hand. It's that simple:</p></div>
+<div class="pillars">
+<div class="pillar"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4"/></svg></div>
+<div><h3 class="es">Vos lo pedís</h3><h3 class="en">You ask</h3><p class="es">Hablando, sin pantallas: mientras tomás café o andás haciendo mandados.</p><p class="en">By voice, no screens: over coffee or while you're out running errands.</p></div></div>
+<div class="pillar"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div>
+<div><h3 class="es">Él hace el trabajo</h3><h3 class="en">It does the work</h3><p class="es">Investiga, escribe, arma. Tiene su propia computadora para hacerlo.</p><p class="en">It researches, writes and builds, on its own computer.</p></div></div>
+<div class="pillar"><div class="ic"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
+<div><h3 class="es">Vos das el visto bueno</h3><h3 class="en">You sign off</h3><p class="es">Nada sale sin tu aprobación. Warren te acompaña como experto.</p><p class="en">Nothing goes out without your OK. Warren stays beside you as the expert.</p></div></div>
+</div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+<div class="es"><h2>Lo que puede hacer por vos</h2><p>Ejemplos de cómo se vería, con tu negocio:</p></div>
+<div class="en"><h2>What it can do for you</h2><p>Examples of how it would look, with your business:</p></div>
+<div class="show">
+<div class="tile"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg></div>
+<h3 class="es">Borradores de tu campaña</h3><h3 class="en">Drafts of your campaign</h3>
+<p class="es">La oferta, el público y los mensajes, para profesionales de habla hispana en Costa Rica. Vos elegís cuál sale.</p>
+<p class="en">The offer, the audience and the messages, for Spanish-speaking professionals in Costa Rica. You choose what goes out.</p>
+<div class="mock"><div class="bubble me"><span class="es">Haceme la campaña de mis talleres.</span><span class="en">Draft the campaign for my workshops.</span></div><div class="bubble"><span class="es">Listo, aquí van tres versiones para que escojás.</span><span class="en">Done, here are three versions to choose from.</span></div></div></div>
+<div class="tile"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/></svg></div>
+<h3 class="es">Práctica por voz</h3><h3 class="en">Voice practice</h3>
+<p class="es">Ensayá una presentación o una entrevista sobre tu negocio, con las manos libres, antes del momento real.</p>
+<p class="en">Rehearse a presentation or an interview about your business, hands-free, before the real thing.</p>
+<div class="mock wave" aria-hidden="true"><i style="height:30%"></i><i style="height:70%"></i><i style="height:45%"></i><i style="height:90%"></i><i style="height:55%"></i><i style="height:80%"></i><i style="height:35%"></i><i style="height:65%"></i><i style="height:95%"></i><i style="height:50%"></i><i style="height:75%"></i><i style="height:40%"></i></div></div>
+<div class="tile"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+<h3 class="es">Investigación de precios</h3><h3 class="en">Price research</h3>
+<p class="es">Revisa cuánto cobran talleres parecidos en Costa Rica y te trae tres opciones con sus fuentes, incluido el precio en dos pagos.</p>
+<p class="en">It checks what similar workshops cost in Costa Rica and brings you three options with sources, including a two-payment price.</p>
+<div class="mock bars" aria-hidden="true"><span style="height:50%">A</span><span style="height:75%">B</span><span style="height:100%">C</span></div></div>
+<div class="tile"><div class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
+<h3 class="es">Sitio web y pagos</h3><h3 class="en">Website and payments</h3>
+<p class="es">Tu página, tu aula y tu correo, quizá en Systeme.io. Pago por adelantado con PayPal o Visa por WhatsApp: el curso completo o en dos pagos.</p>
+<p class="en">Your page, classroom and email, perhaps on Systeme.io. Payment in advance by PayPal or Visa via WhatsApp: the full course or two payments.</p></div>
+<div class="tile"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4 4 20"/></svg></div>
+<h3 class="es">Publicaciones en X, con Warren revisando</h3><h3 class="en">X posts, with Warren reviewing</h3>
+<p class="es">Vos tenés la cuenta y agregás a Warren como Administrador con X Pro Teams. Él ayuda desde su propio usuario, sin compartir contraseñas.</p>
+<p class="en">You own the account and add Warren as Administrator with X Pro Teams. He helps from his own login, no passwords shared.</p></div>
+<div class="tile"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2zM8 7h6"/></svg></div>
+<h3 class="es">Tu material de clase</h3><h3 class="en">Your class material</h3>
+<p class="es">Presentaciones, historias, imágenes, videos y ejercicios, en vivo o a su propio ritmo, con tu retroalimentación semanal.</p>
+<p class="en">Slides, stories, images, videos and exercises, live or self-paced, with your weekly feedback.</p></div>
+</div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+<div class="es"><h2>Qué sigue: tu plan, paso a paso</h2><p>Sin fechas fijas. Vos y Warren deciden el ritmo.</p></div>
+<div class="en"><h2>What's next: your plan, step by step</h2><p>No fixed dates. You and Warren set the pace.</p></div>
+<ol class="tl">
+<li><span class="dot">1</span><h3 class="es">La regla de privacidad</h3><h3 class="en">The privacy rule</h3><p class="es">Tu asistente es solo para tu negocio. Lo de tu otro trabajo se queda fuera, siempre.</p><p class="en">Your assistant is for your business only. Your other job stays out of it, always.</p></li>
+<li><span class="dot">2</span><h3 class="es">Tus respuestas</h3><h3 class="en">Your answers</h3><p class="es">Temas, niveles, horario, en vivo o a tu ritmo, público, nombre de la marca y canales.</p><p class="en">Topics, levels, schedule, live or self-paced, audience, brand name and channels.</p></li>
+<li><span class="dot">3</span><h3 class="es">Tu propio asistente</h3><h3 class="en">Your own assistant</h3><p class="es">Empezá en el nivel de $100, como recomendó Warren. <span class="tag">por confirmar el plan</span></p><p class="en">Start at the $100 level, as Warren recommended. <span class="tag">plan to confirm</span></p></li>
+<li><span class="dot">4</span><h3 class="es">Todo por escrito</h3><h3 class="en">Everything in writing</h3><p class="es">Cada pedido y decisión queda anotado, para que nada se pierda. Warren revisa.</p><p class="en">Every request and decision gets written down so nothing gets lost. Warren reviews.</p></li>
+<li><span class="dot">5</span><h3 class="es">Investigación de precios</h3><h3 class="en">Price research</h3><p class="es">Tres números con fuentes. Vos elegís.</p><p class="en">Three numbers with sources. You choose.</p></li>
+<li><span class="dot">6</span><h3 class="es">La campaña de promoción</h3><h3 class="en">The promotion campaign</h3><p class="es">El borrador llega a tus manos para aprobarlo.</p><p class="en">The draft comes to you for approval.</p></li>
+<li><span class="dot">7</span><h3 class="es">Sitio web y pagos</h3><h3 class="en">Website and payments</h3><p class="es">En línea, con una compra de prueba que funcione en las dos formas de pago.</p><p class="en">Live, with a test purchase that works for both payment options.</p></li>
+<li><span class="dot">8</span><h3 class="es">Tu primera lección</h3><h3 class="en">Your first lesson</h3><p class="es">Diapositivas, una historia, imágenes o video y ejercicios.</p><p class="en">Slides, a story, images or video, and exercises.</p></li>
+<li><span class="dot">9</span><h3 class="es">X Pro Teams</h3><h3 class="en">X Pro Teams</h3><p class="es">Viene con Premium+: $40 al mes o $395 al año. Agregás a Warren como Administrador. <span class="tag">precios por confirmar</span></p><p class="en">Comes with Premium+: $40/month or $395/year. You add Warren as Administrator. <span class="tag">prices to confirm</span></p></li>
+<li><span class="dot">10</span><h3 class="es">Práctica por voz</h3><h3 class="en">Voice practice</h3><p class="es">Presentaciones y entrevistas de tu negocio, con las manos libres.</p><p class="en">Presentations and interviews for your business, hands-free.</p></li>
+<li><span class="dot">11</span><h3 class="es">Revisión mensual</h3><h3 class="en">Monthly check-in</h3><p class="es">¿Está produciendo? ¿Cada venta paga lo siguiente?</p><p class="en">Is it producing? Does each sale pay for the next step?</p></li>
+</ol>
+</div></section>
+
+<section class="why"><div class="wrap">
+<div class="es"><h2>Empezar pequeño</h2><p>El consejo de Warren: arrancar sin arriesgar de más y dejar que el negocio se pague solo.</p></div>
+<div class="en"><h2>Start small</h2><p>Warren's advice: begin without overreaching and let the business pay its own way.</p></div>
+<div class="money">
+<div class="stat" style="color:var(--ink)"><b>$100</b><span class="es">el nivel para empezar, porque vas a hablar mucho con tu asistente</span><span class="en">the starting level, since you'll talk to your assistant a lot</span></div>
+<div class="stat" style="color:var(--ink)"><b>1 → 2 → 3</b><span class="es">cada venta cubre lo siguiente</span><span class="en">each sale covers the next</span></div>
+<div class="stat" style="color:var(--ink)"><b>$2,000–4,000</b><span class="es">al mes: la meta de referencia</span><span class="en">a month: the benchmark to aim for</span></div>
+</div>
+</div></section>
+
+<section class="end"><div class="wrap">
+<div class="es"><h2>Lo tuyo es enseñar.</h2><p>Lo demás lo puede cargar tu propio asistente, con Warren a tu lado. Cuando estés lista, el primer paso es una conversación más.</p></div>
+<div class="en"><h2>Your part is teaching.</h2><p>Your own assistant can carry the rest, with Warren beside you. When you're ready, the first step is one more conversation.</p></div>
+</div></section>
+</main>
+<footer><span class="es">Hecho con cariño a partir de una charla con tu hermano. Los precios pueden cambiar; se confirman el día que pagués.</span><span class="en">Made with care from a chat with your brother. Prices can change; confirm them the day you pay.</span></footer>
+<script>
+var b=document.body,t=document.getElementById('t');
+function s(l){b.dataset.lang=l;document.documentElement.lang=l;t.setAttribute('aria-label',l==='es'?'Switch to English':'Cambiar a español')}
+t.onclick=function(){s(b.dataset.lang==='es'?'en':'es')};
+if(location.hash==='#en')s('en');
+</script>
+</body></html>
